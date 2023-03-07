@@ -6,9 +6,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <figure>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" />
-    </figure>
+    <header>
+      <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" />
+      </figure>
+      <form>
+        <section>
+          <input id="palavraChave" size="50">
+          <button id="buscar">Buscar</button> 
+        </section>
+        <section class="ordenacao">
+          <label>Ordenar por: </label>
+          <select id="ordenar">
+            <option value="fraquezas">Qtde. de fraquezas</option>
+            <option value="tipo">Tipo</option>
+          </select>
+        </section>
+      </form>
+    </header>
     <script src="main.js" type="module"></script>
   </body>
 </html>

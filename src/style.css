@@ -1,8 +1,16 @@
 img {
-    width: 800px;
-    height: 295px;
-    object-fit: scale-down;
-    object-position: left top;
+    width: 60%;
     display: block;
-    margin: 0 auto;
+    margin: auto;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ordenacao {
+    align-self: flex-end;
+}
+
