@@ -1,11 +1,11 @@
-import { capitalizeFirstLetter, filterByName, sortBySpawn } from './data.js';
+import { capitalizeFirstLetter, filterByName, sortBySpawn, sortByNumber} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 
 document.getElementById("buscar_btn").addEventListener("click", filterPokemons);
 document.getElementById("ordenacao_select").addEventListener("click", sort);
 
-const pokemonsToShow = data.pokemon;
+let pokemonsToShow = data.pokemon;
 showPokemons(pokemonsToShow);
 
 function showPokemons(pokemons) {
@@ -32,10 +32,10 @@ function generateNewPokemonNode(pokemon) {
 
 function filterPokemons(){
   const text = document.getElementById("palavra_chave").value;
-  const result = filterByName(text, data.pokemon);
+  pokemonsToShow = filterByName(text, data.pokemon);
 
   resetContainer();
-  showPokemons(result);
+  showPokemons(pokemonsToShow);
 }
 
 function resetContainer(){
@@ -49,7 +49,11 @@ function sort(){
   const selected = document.getElementById("ordenacao_select").selectedIndex;
 
   let result;
+
   if(selected === 0){
+    result = sortByNumber(pokemonsToShow);
+  }
+  if(selected === 1){
     result = sortBySpawn(pokemonsToShow);
   }
 

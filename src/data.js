@@ -25,3 +25,17 @@ export const sortBySpawn = (pokemons) => {
   return result;
 }
 
+export const sortByNumber = (pokemons) => {
+  const result = pokemons.sort((a, b) => {
+    if(a["num"] < b["num"]){
+      return -1
+    }
+    if(a["num"] > b["num"]){
+      return 1;
+    }
+    return 0;
+  });
+
+  return result;
+}
+
