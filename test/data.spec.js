@@ -1,23 +1,30 @@
-import { example, anotherExample } from '../src/data.js';
+import { capitalizeFirstLetter, filtrarPorNome } from '../src/data.js';
 
 
-describe('example', () => {
+describe('captalizeFirstLetter', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof capitalizeFirstLetter).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('should return Abc for abc', () => {
+    expect(capitalizeFirstLetter("abc")).toBe("Abc");
   });
 });
 
+describe('filtrarPorNome', () => {
+  const pokemons = [{"name":"abc"}, {"name":"cde"}, {"name":"xyz"}];
 
-describe('anotherExample', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+    expect(typeof filtrarPorNome).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('should return array with 1 for abc name', () => {
+    const result = filtrarPorNome("abc", pokemons);
+    expect(result.length).toBe(1);
+  });
+
+  it('should return array with 2 for c name', () => {
+    const result = filtrarPorNome("c", pokemons);
+    expect(result.length).toBe(2);
   });
 });

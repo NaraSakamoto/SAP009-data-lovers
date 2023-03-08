@@ -1,9 +1,14 @@
-// estas funciones son de ejemplo
 
-export const example = () => {
-  return 'example';
-};
+export const capitalizeFirstLetter = (text)  => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+export const filtrarPorNome = (text, pokemons) => {
+  const result = pokemons.filter((pokemon) => {
+    return pokemon.name.includes(text);
+  });
+
+  return result;
+}
+
+
