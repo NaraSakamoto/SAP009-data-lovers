@@ -30,7 +30,7 @@ export const sortByNumber = (pokemons) => {
     if(a["num"] < b["num"]){
       return -1
     }
-    if(a["num"] > b["num"]){
+    if(a["num"] > b["spawn-chance"]){
       return 1;
     }
     return 0;
@@ -39,3 +39,34 @@ export const sortByNumber = (pokemons) => {
   return result;
 }
 
+export const sortByType = (pokemons) => {
+  const result = pokemons.sort((a, b) => {
+    if(a["type"] < b["type"]){
+      return -1
+    }
+    if(a["type"] > b["type"]){
+      return 1;
+    }
+    return 0;
+  });
+
+  return result;
+}
+
+export const sortByWeaknesses = (pokemons) => {
+  const result = pokemons.sort((a, b) => {
+    if(sumOfWeaknesses(a) < sumOfWeaknesses(b)){
+      return -1
+    }
+    if(sumOfWeaknesses(a) > sumOfWeaknesses(b)){
+      return 1;
+    }
+    return 0;
+  });
+
+  return result;
+}
+
+function sumOfWeaknesses (pokemon) {
+  return pokemon.weaknesses.length;
+}

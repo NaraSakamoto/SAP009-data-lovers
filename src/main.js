@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter, filterByName, sortBySpawn, sortByNumber} from './data.js';
+import { capitalizeFirstLetter, filterByName, sortBySpawn, sortByNumber, sortByType, sortByWeaknesses} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 
@@ -55,6 +55,12 @@ function sort(){
   }
   if(selected === 1){
     result = sortBySpawn(pokemonsToShow);
+  }
+  if(selected === 2){
+    result = sortByWeaknesses(pokemonsToShow);
+  }
+  if(selected === 3){
+    result = sortByType(pokemonsToShow);
   }
 
   resetContainer();
