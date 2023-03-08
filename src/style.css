@@ -26,14 +26,14 @@ figcaption {
     text-align: center;
 }
 
-main {
+#container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 30px;
 }
 
-main > section {
+#container > section {
     display: flex;
     align-items: center;
     gap: 10px;

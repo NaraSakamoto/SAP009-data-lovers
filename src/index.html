@@ -1,126 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pokemon</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <figure>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" />
-      </figure>
-      <form>
-        <section>
-          <input id="palavraChave" size="50">
-          <button id="buscar">Buscar</button> 
+
+<head>
+  <meta charset="utf-8">
+  <title>Pokemon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <figure>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" />
+    </figure>
+    <form>
+      <section>
+        <input id="palavraChave" size="50">
+        <button id="buscar">Buscar</button>
+      </section>
+      <section class="ordenacao">
+        <label>Ordenar por: </label>
+        <select id="ordenar">
+          <option value="frequencia">Frequência</option>
+          <option value="fraquezas">Qtde. de fraquezas</option>
+          <option value="tipo">Tipo</option>
+        </select>
+      </section>
+    </form>
+  </header>
+  <main>
+    <section id="container">
+      <template>
+        <section id="pokemon">
+          <figure>
+            <img id="pokemon_img" src="pokemon_img_url">
+            <figcaption id="pokemon_name">pokemon_name</figcaption>
+          </figure>
+          <article>
+            <p id="pokemon_type">Type: <strong>pokemon_type</strong></p>
+            <p id="pokemon_weight">Weight: <strong>pokemon_weight</strong></p>
+            <p id="pokemon_height">Height: <strong>pokemon_height</strong></p>
+            <p id="pokemon_weaknesses">Weaknesses: <strong>pokemon_weaknesses</strong></p>
+            <p id="pokemon_resistant">Resistant: <strong>pokemon_resistant</strong></p>
+          </article>
         </section>
-        <section class="ordenacao">
-          <label>Ordenar por: </label>
-          <select id="ordenar">
-            <option value="frequencia">Frequência</option>
-            <option value="fraquezas">Qtde. de fraquezas</option>
-            <option value="tipo">Tipo</option>
-          </select>
-        </section>
-      </form>
-    </header>
-    <main>
-      <section id="pokemon_0">
-        <figure>
-          <img id="img_0" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_0">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_0">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_0">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_0">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_0">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_0">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-      <section id="pokemon_1">
-        <figure>
-          <img id="img_1" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_1">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_1">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_1">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_1">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_1">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_1">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-      <section id="pokemon_1">
-        <figure>
-          <img id="img_1" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_1">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_1">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_1">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_1">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_1">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_1">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-      <section id="pokemon_1">
-        <figure>
-          <img id="img_1" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_1">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_1">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_1">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_1">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_1">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_1">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-      <section id="pokemon_1">
-        <figure>
-          <img id="img_1" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_1">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_1">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_1">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_1">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_1">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_1">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-      <section id="pokemon_1">
-        <figure>
-          <img id="img_1" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_1">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_1">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_1">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_1">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_1">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_1">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-      <section id="pokemon_1">
-        <figure>
-          <img id="img_1" src="https://www.serebii.net/pokemongo/pokemon/001.png">
-          <figcaption id="name_1">Bulbasaur</figcaption>
-        </figure>
-        <article>
-          <p id="type_1">Type: <strong>Grass, Poison</strong></p>
-          <p id="weight_1">Weight: <strong>6,9 kg</strong></p>
-          <p id="height_1">Height: <strong>0,71 m</strong></p>
-          <p id="weaknesses_1">Weaknesses: <strong>fire, ice, flying, psychic</strong></p>
-          <p id="resistant_1">Resistant: <strong>water, electric, grass, fighting, fairy</strong></p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      by Naroka
-    </footer>
-    <script src="main.js" type="module"></script>
-  </body>
+      </template>
+    </section>
+  </main>
+  <footer>
+    by Naroka
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
