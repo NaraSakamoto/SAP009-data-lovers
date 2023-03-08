@@ -1,12 +1,17 @@
-import { capitalizeFirstLetter } from './data.js';
+import { capitalizeFirstLetter, filterByName, sortBySpawn } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
-initPokemon(data);
 
-function initPokemon(data) {
+document.getElementById("buscar_btn").addEventListener("click", filterPokemons);
+document.getElementById("ordenacao_select").addEventListener("click", sort);
+
+const pokemonsToShow = data.pokemon;
+showPokemons(pokemonsToShow);
+
+function showPokemons(pokemons) {
   const container = document.getElementById("container");
 
-  data.pokemon.forEach(pokemon => {
+  pokemons.forEach(pokemon => {
     container.append(generateNewPokemonNode(pokemon));
   });
 }
@@ -23,4 +28,31 @@ function generateNewPokemonNode(pokemon) {
   template.querySelector("#pokemon_resistant strong").textContent = pokemon.resistant.join(", ");
 
   return template;
+}
+
+function filterPokemons(){
+  const text = document.getElementById("palavra_chave").value;
+  const result = filterByName(text, data.pokemon);
+
+  resetContainer();
+  showPokemons(result);
+}
+
+function resetContainer(){
+  const list = document.querySelectorAll("#container section");
+  for(const element of list) {
+    element.remove();
+  }
+}
+
+function sort(){
+  const selected = document.getElementById("ordenacao_select").selectedIndex;
+
+  let result;
+  if(selected === 0){
+    result = sortBySpawn(pokemonsToShow);
+  }
+
+  resetContainer();
+  showPokemons(result);
 }
