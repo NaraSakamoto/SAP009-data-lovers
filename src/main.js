@@ -1,9 +1,19 @@
-import { capitalizeFirstLetter, filterByName, sortBySpawn, sortByNumber, sortByType, sortByWeaknesses} from './data.js';
+import { capitalizeFirstLetter, filterByName, sortPokemons} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+const template = document.querySelector("template").content;
+const num = template.querySelector("[data-num='']");
+const img = template.querySelector("img");
+const name = template.querySelector("[data-name='']");
+const type = template.querySelector("[data-type='']");
+const weight = template.querySelector("[data-weight='']");
+const height = template.querySelector("[data-height='']");
+const weaknesses = template.querySelector("[data-weaknesses='']");
+const resistant = template.querySelector("[data-resistant='']");
+const text = document.getElementById("palavra_chave");
 
 document.getElementById("buscar_btn").addEventListener("click", filterPokemons);
-document.getElementById("ordenacao_select").addEventListener("click", sort);
+document.getElementById("ordenacao_select").addEventListener("change", sort);
 
 let pokemonsToShow = data.pokemon;
 showPokemons(pokemonsToShow);
@@ -17,22 +27,34 @@ function showPokemons(pokemons) {
 }
 
 function generateNewPokemonNode(pokemon) {
-  const template = document.querySelector("template").content.cloneNode(true);
+  num.dataset.num = pokemon.num;
 
-  template.getElementById("pokemon_img").src = pokemon.img;
-  template.getElementById("pokemon_name").textContent = capitalizeFirstLetter(pokemon.name);
-  template.querySelector("#pokemon_type strong").textContent = pokemon.type.join(", ");
-  template.querySelector("#pokemon_weight strong").textContent = pokemon.size.weight;
-  template.querySelector("#pokemon_height strong").textContent = pokemon.size.height;
-  template.querySelector("#pokemon_weaknesses strong").textContent = pokemon.weaknesses.join(", ");
-  template.querySelector("#pokemon_resistant strong").textContent = pokemon.resistant.join(", ");
+  img.src = pokemon.img;
+  img.value = pokemon.img;
 
-  return template;
+  name.textContent = capitalizeFirstLetter(pokemon.name);
+  name.dataset.name = pokemon.name;
+  
+  type.dataset.type=pokemon.type.join("_");
+  type.childNodes[1].textContent = pokemon.type.join(", ");
+
+  weight.dataset.weight=pokemon.size.weight;
+  weight.childNodes[1].textContent = pokemon.size.weight;
+
+  height.dataset.height=pokemon.size.height;
+  height.childNodes[1].textContent = pokemon.size.height;
+
+  weaknesses.dataset.weaknesses=pokemon.weaknesses.join("_");
+  weaknesses.childNodes[1].textContent = pokemon.weaknesses.join(", ");
+
+  resistant.dataset.resistant=pokemon.resistant.join("_");
+  resistant.childNodes[1].textContent = pokemon.resistant.join(", ");
+
+  return template.cloneNode(true);
 }
 
 function filterPokemons(){
-  const text = document.getElementById("palavra_chave").value;
-  pokemonsToShow = filterByName(text, data.pokemon);
+  pokemonsToShow = filterByName(text.value, data.pokemon);
 
   resetContainer();
   showPokemons(pokemonsToShow);
@@ -48,20 +70,7 @@ function resetContainer(){
 function sort(){
   const selected = document.getElementById("ordenacao_select").selectedIndex;
 
-  let result;
-
-  if(selected === 0){
-    result = sortByNumber(pokemonsToShow);
-  }
-  if(selected === 1){
-    result = sortBySpawn(pokemonsToShow);
-  }
-  if(selected === 2){
-    result = sortByWeaknesses(pokemonsToShow);
-  }
-  if(selected === 3){
-    result = sortByType(pokemonsToShow);
-  }
+  const result = sortPokemons(pokemonsToShow, selected);
 
   resetContainer();
   showPokemons(result);

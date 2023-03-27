@@ -70,3 +70,10 @@ export const sortByWeaknesses = (pokemons) => {
 function sumOfWeaknesses (pokemon) {
   return pokemon.weaknesses.length;
 }
+
+export const sortPokemons = (pokemons, sort) => {
+  const functions = [sortByNumber, sortBySpawn, sortByWeaknesses, sortByType];
+  const result = functions[sort](pokemons);
+
+  return result;
+}
